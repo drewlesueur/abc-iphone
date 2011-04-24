@@ -1,0 +1,48 @@
+<!doctupe html>
+<html>
+<head>
+<title> ABC
+</title>
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+
+  	<meta name="viewport" content="width=device-width, user-scalable=no" />
+<script src="http://includes.the.tl/zepto/zepto.js"></script>
+<script src="http://includes.the.tl/underscore.js"></script>
+  <script src="http://includes.the.tl/neckbrace.js"></script>
+  <script src="http://includes.the.tl/coffeescript.js"></script>
+  <script src="http://includes.the.tl/zepto/zepto.js"></script>
+  <script src="http://includes.the.tl/zepto/fx.js"></script>
+
+<script src="http://includes.the.tl/util.js"></script>
+ <script type="text/coffeescript">
+App = _nb.extendModel
+  append: () -> 1
+  initialize: (o) ->
+    _m(o).el = $("#wrapper")
+    o.abc = "abcdedghijklmnopqrstuvwxyz"
+    o.state = 0
+    $(document.body).bind "tap", (e) ->
+      o.state++
+      _t(o).render()
+    _t.render o
+  rednder: (o) ->
+    _m(o).el.text _.s o.abc, o.state,1
+$(document).ready () ->
+  console.log "ready"
+  window.app = _nb.metaType App
+</script>
+<style>
+* {
+margin:0;
+padding:0;
+}
+
+#wrapper {
+width: 320px;
+}
+</style>
+</head>
+<body>
+<div id="wrapper">
+</div>
+</body>
